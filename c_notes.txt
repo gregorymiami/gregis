@@ -1,0 +1,4 @@
+- Build and run C programs on MAC
+1. cc -o <desired output file name> <c file>
+2. ./<output file>
+
