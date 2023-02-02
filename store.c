@@ -98,3 +98,30 @@ struct Entry *getEntry(struct KVStore *kv_store, char *key) {
 
   return NULL; 
 }
+
+
+char *deleteEntry(struct KVStore *kv_store, char *key) {
+  if (key == NULL) {
+    printf("key cannot be null.\n");
+    return NULL;
+  }
+
+  if (kv_store == NULL) {
+    printf("the key value store must not be null.\n");
+    return NULL;
+  }
+
+  struct Entry *entry = getEntry(kv_store, key);
+
+  if (entry != NULL) {
+    char *return_value = entry->value;
+    free(entry->key);
+    entry->key = NULL;
+    entry->value = NULL;
+    return return_value;
+  } else {
+    printf("Key %s does not exist in the store.\n", key);
+    return NULL;
+  }
+}
+

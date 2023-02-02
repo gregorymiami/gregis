@@ -23,5 +23,7 @@ int addEntry(struct KVStore *, char *, char *);
 
 struct Entry *getEntry(struct KVStore *, char *);
 
+char *deleteEntry(struct KVStore *, char *);
+
 #endif
 
